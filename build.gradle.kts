@@ -26,6 +26,8 @@ tasks.withType<KotlinJvmCompile> {
         jvmTarget = "1.8"
         languageVersion = "1.3"
         apiVersion = "1.3"
+        // Unlock experimental ktor features
+        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
     }
 }
 
@@ -42,6 +44,6 @@ dependencies {
 }
 
 application {
-    mainClassName = "io.ktor.server.netty.EngineMain"
+    mainClassName = "org.ruslan.lunchtime.EntrypointKt"
 }
 
