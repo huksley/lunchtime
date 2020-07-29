@@ -5,12 +5,12 @@ import io.ktor.application.call
 import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.routing
-import io.ktor.server.netty.EngineMain
+//import io.ktor.server.netty.EngineMain
 import io.ktor.util.KtorExperimentalAPI
 import org.slf4j.LoggerFactory
 
 fun main(args: Array<String>) {
-    EngineMain.main(args)
+    //EngineMain.main(args)
 }
 
 val log = LoggerFactory.getLogger("main")
