@@ -16,7 +16,7 @@ tags:
   - name: Common
     description: Common API, available to everyone without authentication
 paths:
-  "/api/schedule/readable":
+  "/schedule/readable":
     description: Format readable working time1
     summary: Format readable working time3
     post:

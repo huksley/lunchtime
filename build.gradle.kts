@@ -7,6 +7,7 @@ version = "0.1-SNAPSHOT"
 plugins {
     kotlin("jvm") version "1.3.72" apply true
     id("com.github.node-gradle.node") version "2.2.4" apply true
+    id("com.github.johnrengelman.shadow") version "5.0.0"
     application
 }
 
@@ -42,4 +43,10 @@ dependencies {
 
 application {
     mainClassName = "org.ruslan.lunchtime.EntrypointKt"
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes(mapOf("Main-Class" to application.mainClassName))
+    }
 }

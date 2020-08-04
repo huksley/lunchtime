@@ -12,5 +12,22 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: "11.0.4"
+      - name: Cache Gradle packages
+          uses: actions/cache@v2
+          with:
+            path: ~/.gradle/caches
+            key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+            restore-keys: ${{ runner.os }}-gradle
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}
+            ${{ runner.os }}-build-${{ matrix.node-version }}
+            ${{ runner.os }}-${{ matrix.node-version }}
       - name: Build with Gradle
-        run: ./gradlew npmBuild build
+        run: ./gradlew npmInstall npmBuild build
