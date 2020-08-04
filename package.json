@@ -1,0 +1,25 @@
+{
+  "name": "lunchtime",
+  "version": "0.1.0",
+  "description": "Links",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -w . -w src/test/resources -w src/main/resources -e yaml,json,conf -x npm -- run build",
+    "build": "npm run build-doc",
+    "build-doc": "redoc-cli bundle --cdn=true --options.disableSearch --options.hideLoading --options.hideHostname --options.expandResponses=200,204 -o src/main/resources/generated/redoc.html src/main/resources/openapi.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huksley/lunchtime.git"
+  },
+  "author": "Ruslan Gainutdinov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huksley/lunchtime/issues"
+  },
+  "homepage": "https://github.com/huksley/lunchtime#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "redoc-cli": "^0.9.10"
+  }
+}
