@@ -29,7 +29,7 @@ fun validate(schedule: Schedule): ValidationResult {
     return ValidationResult(true, 500, "Failed")
 }
 
-val formatter = DateTimeFormatter.ofPattern("HH:mm")
+val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm")
 
 fun formatTime(day: Day): String {
     return LocalDateTime.ofEpochSecond(day.pointOfTime.toLong(), 0, ZoneOffset.UTC).format(formatter)
