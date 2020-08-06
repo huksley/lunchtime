@@ -31,3 +31,25 @@ jobs:
             ${{ runner.os }}-${{ matrix.node-version }}
       - name: Build with Gradle
         run: ./gradlew npmInstall npmBuild build
+      - name: Update API documentation
+        uses: andstor/copycat-action@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          src_path: src/main/resources/
+          dst_path: /
+          dst_owner: huksley
+          dst_repo_name: lunchtime
+          dst_branch: docs
+          filter: openapi.yaml example-request.json example-response.json
+          commit_message: Update documentation files
+      - name: Update API documentation
+        uses: andstor/copycat-action@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          src_path: src/main/resources/generated
+          dst_path: /
+          dst_owner: huksley
+          dst_repo_name: lunchtime
+          dst_branch: docs
+          filter: redoc.html
+          commit_message: Update documentation files
