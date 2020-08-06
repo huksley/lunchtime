@@ -35,21 +35,11 @@ jobs:
         uses: andstor/copycat-action@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          src_path: src/main/resources/
+          src_path: src/main/resources
+          src_branch: main
           dst_path: /
           dst_owner: huksley
           dst_repo_name: lunchtime
           dst_branch: docs
-          filter: openapi.yaml example-request.json example-response.jsondoc"
-          commit_message: Update documentation files
-      - name: Update API documentation
-        uses: andstor/copycat-action@v3
-        with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          src_path: src/main/resources/generated
-          dst_path: /
-          dst_owner: huksley
-          dst_repo_name: lunchtime
-          dst_branch: docs
-          filter: redoc.html
+          filter: openapi.yaml example-request.json example-response.json
           commit_message: Update documentation files
