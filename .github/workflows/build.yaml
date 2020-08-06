@@ -32,10 +32,10 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew npmInstall npmBuild build
       - name: Upload math result for job 1
-          uses: actions/upload-artifact@v2
-          with:
-            name: redoc.html
-            path: redoc.html
+        uses: actions/upload-artifact@v2
+        with:
+          name: redoc.html
+          path: redoc.html
       - name: Update API documentation 2
         uses: andstor/copycat-action@v3
         with:
