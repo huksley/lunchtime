@@ -1,6 +1,8 @@
 package org.ruslan.lunchtime
 
-class Schedule : LinkedHashMap<Days, List<Day>>() {
-
-
-}
+/**
+ * Schedule for the restaurant.
+ *
+ * @see "example-request.json"
+ */
+class Schedule : LinkedHashMap<Weekday, List<ScheduleEvent>>()

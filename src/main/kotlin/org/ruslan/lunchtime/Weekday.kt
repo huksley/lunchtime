@@ -1,6 +1,6 @@
 package org.ruslan.lunchtime
 
-enum class Days {
+enum class Weekday {
     monday,
     tuesday,
     wednesday,
