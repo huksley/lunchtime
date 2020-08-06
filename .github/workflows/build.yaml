@@ -30,34 +30,12 @@ jobs:
             ${{ runner.os }}-build-${{ matrix.node-version }}
             ${{ runner.os }}-${{ matrix.node-version }}
       - name: Build with Gradle
-        steps:
-          - name: Build now
-            run: ./gradlew npmInstall npmBuild build
-          - name: Upload math result for job 1
-            uses: actions/upload-artifact@v2
-            with:
-              name: redoc.html
-              path: redoc.html
-      - name: Update API documentation 1
-        steps:
-          - name: Download artefact
-            uses: actions/download-artifact@v2
-            with:
-              name: redoc.html
-          - name: LS
-            run: ls
-          - name: Push to GIT
-            uses: andstor/copycat-action@v3
-            with:
-              personal_token: ${{ secrets.PERSONAL_TOKEN }}
-              src_path: src/main/resources/generated
-              src_branch: main
-              dst_path: /
-              dst_owner: huksley
-              dst_repo_name: lunchtime
-              dst_branch: docs
-              filter: redoc.html
-              commit_message: Update documentation files
+        run: ./gradlew npmInstall npmBuild build
+      - name: Upload math result for job 1
+          uses: actions/upload-artifact@v2
+          with:
+            name: redoc.html
+            path: redoc.html
       - name: Update API documentation 2
         uses: andstor/copycat-action@v3
         with:
