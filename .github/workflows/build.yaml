@@ -40,7 +40,7 @@ jobs:
           dst_owner: huksley
           dst_repo_name: lunchtime
           dst_branch: docs
-          filter: openapi.yaml example-request.json example-response.json
+          filter: openapi.yaml example-request.json example-response.jsondoc"
           commit_message: Update documentation files
       - name: Update API documentation
         uses: andstor/copycat-action@v3
