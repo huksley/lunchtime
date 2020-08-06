@@ -20,7 +20,7 @@ curl -XPOST -d @src/main/resources/example-request.json http://localhost:8080/sc
 
 ## Next version
 
-We have proposed changes in [LUNCH-219](https://wolt.atlassian.net/browse/LUNCH-219) to the schedule structure:
+We have proposed changes in [LUNCH-219](https://colt.atlassian.net/browse/LUNCH-219) to the schedule structure:
 
   - [x] Multilingual support
   - [x] Fractional hour start and stop time (say 9:30am)
