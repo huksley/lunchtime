@@ -1,4 +1,18 @@
-Links
+# Lunchtime
+
+Provides readable schedule information for the restaurant.
+Used by Restaurant App v.1.0.5+
+
+See documentation online: 
+
+## Running locally
+
+```
+./gradlew npmInstall npmBuild build
+./gradlew run
+```
+
+## Links
 
   * https://github.com/JetBrains/kotless/
   * https://ktor.io/servers/configuration/environments.html

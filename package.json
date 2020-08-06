@@ -4,6 +4,7 @@
   "description": "Links",
   "main": "index.js",
   "scripts": {
+    "release": "standard-version && git push --follow-tags origin master",
     "dev": "nodemon -w . -w src/test/resources -w src/main/resources -e yaml,json,conf -x npm -- run build",
     "build": "npm run build-doc",
     "build-doc": "redoc-cli bundle --cdn=true --options.disableSearch --options.hideLoading --options.hideHostname --options.expandResponses=200,204 -o src/main/resources/generated/redoc.html src/main/resources/openapi.yaml"
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/huksley/lunchtime#readme",
   "devDependencies": {
     "nodemon": "^2.0.4",
-    "redoc-cli": "^0.9.10"
+    "redoc-cli": "^0.9.10",
+    "standard-version": "^8.0.2"
   }
 }
