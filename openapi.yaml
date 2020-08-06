@@ -51,7 +51,7 @@ paths:
                 $ref: "#/components/schemas/Error"
 components:
   schemas:
-    OpenClose:
+    ScheduleEvent:
       type: object
       properties:
         type:
@@ -61,19 +61,27 @@ components:
             - CLOSE
         value:
           type: integer
-    DayOfWeek:
+    ScheduleEvents:
       type: array
       items:
-        $ref: "#/components/schemas/OpenClose"
+        $ref: "#/components/schemas/ScheduleEvent"
     IntermediateSchedule:
       type: object
       properties:
         monday:
-          $ref: "#/components/schemas/DayOfWeek"
+          $ref: "#/components/schemas/ScheduleEvents"
         tuesday:
-          $ref: "#/components/schemas/DayOfWeek"
+          $ref: "#/components/schemas/ScheduleEvents"
         wednesday:
-          $ref: "#/components/schemas/DayOfWeek"
+          $ref: "#/components/schemas/ScheduleEvents"
+        thursday:
+          $ref: "#/components/schemas/ScheduleEvents"
+        friday:
+          $ref: "#/components/schemas/ScheduleEvents"
+        saturay:
+          $ref: "#/components/schemas/ScheduleEvents"
+        sunday:
+          $ref: "#/components/schemas/ScheduleEvents"
     HumanReadableSchedule:
       description: List of lines of schedule
       type: array
