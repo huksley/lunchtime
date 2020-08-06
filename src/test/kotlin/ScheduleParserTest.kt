@@ -186,4 +186,26 @@ class ScheduleParserTest {
                     "\"Sunday: 9 AM - 2 AM\"]"), reformat(response.content))
         }
     }
+
+    @Test
+    fun testNoCloseOnNextDat() = withTestApplication(Application::schedule) {
+        with(handleRequest(HttpMethod.Post, "/schedule/readable") {
+            addHeader("Accept", "application/json")
+            addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+            val schedule = Schedule()
+            schedule[Weekday.tuesday] = listOf(
+                    ScheduleEvent(ScheduleEventType.open, 3600*9),
+                            ScheduleEvent(ScheduleEventType.close, 3600*18)
+            )
+            schedule[Weekday.monday] = listOf(
+                    ScheduleEvent(ScheduleEventType.open, 3600*9)
+            )
+            val json = serialize(schedule)
+            println(json)
+            setBody(json!!)
+        }) {
+            assertEquals(HttpStatusCode.BadRequest, response.status())
+            println(response.content)
+        }
+    }
 }

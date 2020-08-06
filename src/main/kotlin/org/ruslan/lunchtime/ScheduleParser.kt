@@ -44,8 +44,9 @@ fun format(schedule: Schedule): List<String> {
             } else {
                 if (daySchedule.last().status == ScheduleEventType.open) {
                     val nextWeekday = Weekday.values()[if (weekday == Weekday.sunday) 0 else Weekday.values().indexOf(weekday) + 1]
-                    val closeNextDay = schedule[nextWeekday]?.get(0) ?: throw HttpException(HttpStatusCode.BadRequest, "Open day are not closed on the next day")
-                    weekday.name.capitalize() + ": " + formatWeekday((regularSchedule + closeNextDay) as List<ScheduleEvent>).joinToString(", ")
+                    val firstEventNextDay = schedule[nextWeekday]?.get(0) ?: throw HttpException(HttpStatusCode.BadRequest, "Open day are not closed on the next day")
+                    val closeNextDay = if (firstEventNextDay.status == ScheduleEventType.close) firstEventNextDay else throw HttpException(HttpStatusCode.BadRequest, "First event during the next day must be a close event")
+                    weekday.name.capitalize() + ": " + formatWeekday(regularSchedule + closeNextDay).joinToString(", ")
                 } else {
                     weekday.name.capitalize() + ": " + formatWeekday(regularSchedule).joinToString(", ")
                 }
