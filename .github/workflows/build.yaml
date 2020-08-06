@@ -30,4 +30,4 @@ jobs:
             ${{ runner.os }}-build-${{ matrix.node-version }}
             ${{ runner.os }}-${{ matrix.node-version }}
       - name: Build with Gradle
-        run: ./gradlew npmInstall npmBuild build
+        run: ./gradlew npmInstall npmBuild build test
