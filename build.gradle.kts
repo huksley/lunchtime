@@ -2,7 +2,7 @@ import com.moowork.gradle.node.npm.NpmTask
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile
 
 group = "lunchtime"
-version = "0.1-SNAPSHOT"
+version = "0.1.3-SNAPSHOT"
 
 plugins {
     kotlin("jvm") version "1.3.72" apply true

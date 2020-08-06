@@ -7,6 +7,8 @@
     "release": "standard-version && git push --follow-tags origin main",
     "dev": "nodemon -w . -w src/test/resources -w src/main/resources -e yaml,json,conf -x npm -- run build",
     "build": "npm run build-doc",
+    "docs": "shx rm -Rf build/docs && shx mkdir -p build/docs && shx cp src/main/resources/openapi.yaml build/docs && shx cp src/main/resources/*.json build/docs && shx cp src/main/resources/generated/* build/docs",
+    "publish-docs": "npm run docs && gh-pages -b docs -d build/docs",
     "build-doc": "redoc-cli bundle --cdn=true --options.disableSearch --options.hideLoading --options.hideHostname --options.expandResponses=200,204 -o src/main/resources/generated/redoc.html src/main/resources/openapi.yaml"
   },
   "repository": {
@@ -20,8 +22,10 @@
   },
   "homepage": "https://github.com/huksley/lunchtime#readme",
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "nodemon": "^2.0.4",
     "redoc-cli": "^0.9.10",
+    "shx": "^0.3.2",
     "standard-version": "^8.0.2"
   }
 }
