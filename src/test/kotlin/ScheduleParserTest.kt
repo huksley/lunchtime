@@ -107,10 +107,10 @@ class ScheduleParserTest {
             addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
             val schedule = Schedule()
             schedule[Weekday.monday] = listOf(
-                ScheduleEvent(ScheduleEventType.open, 3600*9),
-                ScheduleEvent(ScheduleEventType.close, 3600*13),
-                ScheduleEvent(ScheduleEventType.open, 3600*14),
-                ScheduleEvent(ScheduleEventType.close, 3600*18)
+                    ScheduleEvent(ScheduleEventType.open, 3600 * 9),
+                    ScheduleEvent(ScheduleEventType.close, 3600 * 13),
+                    ScheduleEvent(ScheduleEventType.open, 3600 * 14),
+                    ScheduleEvent(ScheduleEventType.close, 3600 * 18)
             )
             val json = serialize(schedule)
             setBody(json!!)
@@ -134,12 +134,12 @@ class ScheduleParserTest {
             addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
             val schedule = Schedule()
             schedule[Weekday.tuesday] = listOf(
-                    ScheduleEvent(ScheduleEventType.open, 3600*9),
-                    ScheduleEvent(ScheduleEventType.close, 3600*13)
+                    ScheduleEvent(ScheduleEventType.open, 3600 * 9),
+                    ScheduleEvent(ScheduleEventType.close, 3600 * 13)
             )
             schedule[Weekday.monday] = listOf(
-                    ScheduleEvent(ScheduleEventType.open, 3600*9),
-                    ScheduleEvent(ScheduleEventType.close, 3600*13)
+                    ScheduleEvent(ScheduleEventType.open, 3600 * 9),
+                    ScheduleEvent(ScheduleEventType.close, 3600 * 13)
             )
             val json = serialize(schedule)
             println(json)
@@ -164,12 +164,12 @@ class ScheduleParserTest {
             addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
             val schedule = Schedule()
             schedule[Weekday.sunday] = listOf(
-                    ScheduleEvent(ScheduleEventType.open, 3600*9)
+                    ScheduleEvent(ScheduleEventType.open, 3600 * 9)
             )
             schedule[Weekday.monday] = listOf(
-                    ScheduleEvent(ScheduleEventType.close, 3600*2),
-                    ScheduleEvent(ScheduleEventType.open, 3600*9),
-                    ScheduleEvent(ScheduleEventType.close, 3600*18)
+                    ScheduleEvent(ScheduleEventType.close, 3600 * 2),
+                    ScheduleEvent(ScheduleEventType.open, 3600 * 9),
+                    ScheduleEvent(ScheduleEventType.close, 3600 * 18)
             )
             val json = serialize(schedule)
             println(json)
@@ -194,11 +194,11 @@ class ScheduleParserTest {
             addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
             val schedule = Schedule()
             schedule[Weekday.tuesday] = listOf(
-                    ScheduleEvent(ScheduleEventType.open, 3600*9),
-                            ScheduleEvent(ScheduleEventType.close, 3600*18)
+                    ScheduleEvent(ScheduleEventType.open, 3600 * 9),
+                    ScheduleEvent(ScheduleEventType.close, 3600 * 18)
             )
             schedule[Weekday.monday] = listOf(
-                    ScheduleEvent(ScheduleEventType.open, 3600*9)
+                    ScheduleEvent(ScheduleEventType.open, 3600 * 9)
             )
             val json = serialize(schedule)
             println(json)
